@@ -34,77 +34,39 @@
     {% endfor %}
 </section>
 
-<!-- ===== HABILIDADES ===== -->
-<section class="habilidades">
-    <h2 class="seccion-titulo">// stack tecnológico</h2>
+<!-- ===== ÁREAS DE COMPETENCIA ===== -->
+<section class="competencias">
+    <h2 class="seccion-titulo">// áreas de competencia</h2>
+    <p class="seccion-intro">Mi enfoque está en la defensa: detectar, analizar y responder.</p>
 
-    <!-- Lenguajes -->
-    <div class="categoria-skills">
-        <h3 class="categoria-titulo">
-            <span class="bracket">[</span>
-            LENGUAJES
-            <span class="bracket">]</span>
-        </h3>
-        <div class="skills-grid">
-            {% for skill in habilidades.lenguajes %}
-                <div class="skill-card" style="animation-delay: {{ forloop.counter0 }}50ms;">
-                    <div class="skill-header">
-                        <span class="skill-icono">{{ skill.icono }}</span>
-                        <span class="skill-nombre">{{ skill.nombre }}</span>
-                        <span class="skill-nivel">{{ skill.nivel }}%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: {{ skill.nivel }}%;"></div>
-                    </div>
+    <div class="competencias-grid">
+        {% for comp in competencias %}
+            <div class="competencia-card" style="animation-delay: {{ forloop.counter0 }}50ms;">
+                <div class="competencia-icono">{{ comp.icono }}</div>
+                <h3 class="competencia-titulo">{{ comp.titulo }}</h3>
+                <p class="competencia-desc">{{ comp.descripcion }}</p>
+                <div class="competencia-tags">
+                    {% for tag in comp.tags %}
+                        <span class="tag">{{ tag }}</span>
+                    {% endfor %}
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
+</section>
 
-    <!-- Ciberseguridad -->
-    <div class="categoria-skills">
-        <h3 class="categoria-titulo">
-            <span class="bracket">[</span>
-            CIBERSEGURIDAD
-            <span class="bracket">]</span>
-        </h3>
-        <div class="skills-grid">
-            {% for skill in habilidades.ciberseguridad %}
-                <div class="skill-card" style="animation-delay: {{ forloop.counter0 }}50ms;">
-                    <div class="skill-header">
-                        <span class="skill-icono">{{ skill.icono }}</span>
-                        <span class="skill-nombre">{{ skill.nombre }}</span>
-                        <span class="skill-nivel">{{ skill.nivel }}%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: {{ skill.nivel }}%;"></div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
+<!-- ===== STACK TECNOLÓGICO ===== -->
+<section class="stack">
+    <h2 class="seccion-titulo">// stack & herramientas</h2>
+    <p class="seccion-intro">Tecnologías con las que trabajo y exploro día a día.</p>
 
-    <!-- Herramientas -->
-    <div class="categoria-skills">
-        <h3 class="categoria-titulo">
-            <span class="bracket">[</span>
-            HERRAMIENTAS
-            <span class="bracket">]</span>
-        </h3>
-        <div class="skills-grid">
-            {% for skill in habilidades.herramientas %}
-                <div class="skill-card" style="animation-delay: {{ forloop.counter0 }}50ms;">
-                    <div class="skill-header">
-                        <span class="skill-icono">{{ skill.icono }}</span>
-                        <span class="skill-nombre">{{ skill.nombre }}</span>
-                        <span class="skill-nivel">{{ skill.nivel }}%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: {{ skill.nivel }}%;"></div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+    <div class="stack-grid">
+        {% for tech in stack %}
+            <div class="stack-item" style="animation-delay: {{ forloop.counter0 }}40ms;">
+                <span class="stack-icono">{{ tech.icono }}</span>
+                <span class="stack-nombre">{{ tech.nombre }}</span>
+            </div>
+        {% endfor %}
     </div>
 </section>
 
