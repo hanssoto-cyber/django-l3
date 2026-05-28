@@ -67,7 +67,7 @@ def inicio(request):
 
     contexto = {
         'nombre': 'Hans Soto',
-        'titulo': 'Blue Team Engineer',
+        'titulo': 'Analista SOC en formación',
         'subtitulo': 'Futuro Ingeniero en Ciberseguridad',
         'bio': 'Estudiante de ciberseguridad enfocado en defensa, análisis de tráfico y respuesta a incidentes. Apasionado por entender cómo funcionan los ataques para construir mejores defensas.',
         'competencias': competencias,
