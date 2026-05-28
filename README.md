@@ -1,48 +1,33 @@
-# 🎨 Portafolio Personal — Django
+# 🛡️ Portafolio Personal — Hans Soto | Blue Team
 
-[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
-[![Django](https://img.shields.io/badge/Django-5.0-green.svg)](https://www.djangoproject.com/)
+> Portafolio web desarrollado con Django para mostrar mi trayectoria como estudiante de ciberseguridad enfocado en defensa y análisis de incidentes.
+
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
+[![Django](https://img.shields.io/badge/Django-5.2-success.svg)](https://www.djangoproject.com/)
+[![Deployed](https://img.shields.io/badge/Estado-Online-brightgreen.svg)](https://hsoto.pythonanywhere.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Portafolio personal construido con **Django** que reúne mi presentación, proyectos, habilidades, blog y formulario de contacto en un solo lugar.
-
-> 🚧 Proyecto en desarrollo activo — este README se actualiza a medida que el portafolio crece.
+🌐 **Demo en vivo:** [hsoto.pythonanywhere.com](https://hsoto.pythonanywhere.com)
 
 ---
 
-## 📋 Tabla de contenidos
+## 📸 Vista previa
 
-- [Demo](#-demo)
-- [Características](#-características)
-- [Stack tecnológico](#-stack-tecnológico)
-- [Estructura del proyecto](#-estructura-del-proyecto)
-- [Requisitos previos](#-requisitos-previos)
-- [Instalación](#-instalación)
-- [Uso](#-uso)
-- [Variables de entorno](#-variables-de-entorno)
-- [Comandos útiles](#-comandos-útiles)
-- [Roadmap](#-roadmap)
-- [Contribuir](#-contribuir)
-- [Licencia](#-licencia)
-- [Contacto](#-contacto)
+![Página de inicio](docs/screenshots/screenshot-home.png)
+
+> Diseño inspirado en herramientas SOC reales (Kali Linux, VS Code Dark+) con efecto terminal hacker y animaciones tipo typing.
 
 ---
 
-## 🌐 Demo
+## 🎯 Sobre el proyecto
 
-> ⚠️ Pendiente de despliegue. Próximamente disponible en producción.
+Este portafolio nació con un objetivo claro: **demostrar mis capacidades técnicas mientras aprendía**. No quería un template prefabricado. Quería construirlo desde cero para que reflejara mi identidad como futuro analista SOC y, en el proceso, dominar el stack web completo.
 
----
-
-## ✨ Características
-
-- 👤 **Sobre mí** — presentación personal con biografía y foto
-- 💼 **Proyectos** — catálogo de proyectos con imagen, tecnologías, demo y repositorio
-- 🛠️ **Habilidades** — listado visual de tecnologías y herramientas dominadas
-- ✍️ **Blog** — artículos personales sobre tecnología y aprendizaje
-- 📬 **Contacto** — formulario funcional para recibir mensajes
-- 🔐 **Panel de administración** — gestión de contenido sin tocar código (Django Admin)
-- 📱 **Responsive** — adaptado a móvil, tablet y escritorio
+El sitio integra:
+- Sistema de gestión de contenido vía panel admin (sin tocar código para agregar proyectos)
+- Blog técnico con slugs amigables para SEO
+- Formulario de contacto con persistencia en BD y notificación por email
+- Diseño responsive con animaciones tipo terminal
 
 ---
 
@@ -50,207 +35,195 @@ Portafolio personal construido con **Django** que reúne mi presentación, proye
 
 | Capa | Tecnología |
 |------|------------|
-| Backend | Python 3.11+, Django 5.0 |
-| Base de datos | SQLite (desarrollo) |
-| Frontend | HTML5, CSS3, JavaScript |
-| Gestión de imágenes | Pillow |
-| Configuración | python-decouple |
+| Backend | Python 3.11, Django 5.2 |
+| Base de datos | SQLite |
+| Frontend | HTML5, CSS3 con variables, animaciones CSS |
+| Tipografía | JetBrains Mono (Google Fonts) |
+| Archivos estáticos | WhiteNoise |
+| Configuración | python-decouple (variables de entorno) |
+| Email | Gmail SMTP con contraseña de aplicación |
+| Hosting | PythonAnywhere |
 | Control de versiones | Git + GitHub |
+
+---
+
+## ✨ Funcionalidades
+
+### 🏠 Página principal
+- Hero estilo terminal con efecto typing animado
+- Dashboard de stats (proyectos, labs, año cursando)
+- 6 áreas de competencia Blue Team (Monitoreo & SIEM, Seguridad de redes, Análisis de tráfico, Respuesta a incidentes, Administración de sistemas, Automatización)
+- Stack tecnológico visual
+
+### 💼 Proyectos
+- Catálogo dinámico de proyectos cargados desde el admin
+- Vista detallada con imagen, descripción, tecnologías y enlaces a demo/GitHub
+- Sistema de proyecto destacado
+
+### ✍️ Blog
+- Sistema de artículos con slug automático
+- Filtro de publicado/borrador
+- Vista de detalle por artículo
+
+### 📬 Contacto
+- Formulario con validación
+- Persistencia de mensajes en base de datos
+- Notificación automática por email al recibir un mensaje
+- Mensajes de éxito al enviar
+
+### 🔐 Admin
+- Panel de administración Django para gestionar todo el contenido
+- Marcar proyectos como destacados sin tocar código
+- Lectura de mensajes recibidos
+- Slugs autocompletados para artículos
+
+---
+
+## 🚀 Instalación local
+
+### Requisitos previos
+- Python 3.11 o superior
+- Git
+- Editor de código (recomendado: VS Code)
+
+### Pasos
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/hanssoto-cyber/django-l3.git
+cd django-l3
+
+# 2. Crear y activar entorno virtual
+python -m venv venv
+
+# Windows
+.\venv\Scripts\Activate.ps1
+
+# macOS / Linux
+source venv/bin/activate
+
+# 3. Instalar dependencias
+pip install -r requirements.txt
+
+# 4. Configurar variables de entorno
+# Copia .env.example a .env y completa los valores
+cp .env.example .env
+
+# 5. Aplicar migraciones
+python manage.py migrate
+
+# 6. Crear superusuario
+python manage.py createsuperuser
+
+# 7. Levantar el servidor
+python manage.py runserver
+```
+
+Abre tu navegador en **http://127.0.0.1:8000** para ver el sitio, o en **http://127.0.0.1:8000/admin** para el panel de administración.
+
+---
+
+## 🔐 Variables de entorno
+
+El proyecto usa `python-decouple` para gestionar configuración sensible. Crea un archivo `.env` en la raíz con:
+
+```env
+# Django
+SECRET_KEY=genera-una-clave-segura-aqui
+DEBUG=True
+ALLOWED_HOSTS=127.0.0.1,localhost
+
+# Email (Gmail SMTP)
+EMAIL_HOST_USER=tu@gmail.com
+EMAIL_HOST_PASSWORD=tu-contraseña-de-aplicacion-16-caracteres
+```
+
+Para generar una `SECRET_KEY` nueva:
+
+```bash
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+> ⚠️ El archivo `.env` está incluido en `.gitignore`. **Nunca debe subirse al repositorio.**
 
 ---
 
 ## 📁 Estructura del proyecto
 
 ```
-portafolio/
-├── portafolio/           # Configuración global del proyecto
-│   ├── settings.py       # Ajustes principales
-│   ├── urls.py           # Rutas raíz
-│   └── wsgi.py
-├── core/                 # App: inicio, sobre mí, habilidades
-│   ├── models.py
-│   ├── views.py
+django-l3/
+├── portafolio/              # Configuración del proyecto
+│   ├── settings.py
 │   ├── urls.py
-│   └── templates/core/
-├── proyectos/            # App: catálogo de proyectos
-├── blog/                 # App: artículos
-├── contacto/             # App: formulario de contacto
-├── templates/            # Templates compartidos (base.html)
-├── static/               # CSS, JS, imágenes del diseño
-├── media/                # Archivos subidos por el admin
-├── manage.py             # CLI de Django
-├── requirements.txt      # Dependencias del proyecto
-├── .env.example          # Ejemplo de variables de entorno
-├── .gitignore
-└── README.md
+│   └── wsgi.py
+├── core/                    # App: inicio, sobre mí, habilidades
+├── proyectos/               # App: catálogo de proyectos
+├── blog/                    # App: artículos
+├── contacto/                # App: formulario de contacto + email
+├── templates/               # Templates compartidos (base.html)
+├── static/css/              # Estilos personalizados
+├── media/                   # Imágenes subidas desde el admin (ignorado en git)
+├── docs/screenshots/        # Capturas para el README
+├── manage.py
+├── requirements.txt
+├── .env.example
+└── .gitignore
 ```
 
 ---
 
-## ⚙️ Requisitos previos
+## 🌐 Despliegue
 
-Antes de empezar, asegúrate de tener instalado:
+El sitio está desplegado en **PythonAnywhere** usando:
 
-- [Python 3.11 o superior](https://www.python.org/downloads/)
-- [Git](https://git-scm.com/downloads)
-- Un editor de código (recomendado: [VS Code](https://code.visualstudio.com/))
-
-Verifica las instalaciones:
-
-```bash
-python --version
-git --version
-```
+- WhiteNoise para servir archivos estáticos
+- Variables de entorno separadas para producción (`DEBUG=False`)
+- SECRET_KEY rotada (la de desarrollo no se usa en producción)
+- HTTPS habilitado por defecto
 
 ---
 
-## 🚀 Instalación
+## 🎓 Lo que aprendí construyendo este proyecto
 
-### 1. Clonar el repositorio
+Este fue mi primer proyecto Django, partiendo desde **cero conocimiento del framework**. Algunos conceptos clave que dominé:
 
-```bash
-git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
-cd TU_REPOSITORIO
-```
-
-### 2. Crear y activar el entorno virtual
-
-**Windows (PowerShell):**
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
-
-**macOS / Linux:**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### 3. Instalar dependencias
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configurar variables de entorno
-
-Copia el archivo de ejemplo y completa los valores:
-
-```bash
-# Windows
-copy .env.example .env
-
-# macOS / Linux
-cp .env.example .env
-```
-
-Edita `.env` con tus valores (ver sección [Variables de entorno](#-variables-de-entorno)).
-
-### 5. Aplicar migraciones de la base de datos
-
-```bash
-python manage.py migrate
-```
-
-### 6. Crear un superusuario (admin)
-
-```bash
-python manage.py createsuperuser
-```
-
-### 7. Levantar el servidor de desarrollo
-
-```bash
-python manage.py runserver
-```
-
-Abre tu navegador en **http://127.0.0.1:8000**
-
-Panel de administración disponible en **http://127.0.0.1:8000/admin**
-
----
-
-## 🔧 Uso
-
-### Agregar contenido
-
-1. Accede al panel admin en `/admin` con tu superusuario
-2. Crea proyectos, artículos del blog y demás contenido
-3. Las imágenes se guardan en `media/` automáticamente
-
-### Modificar el diseño
-
-- Estilos globales: `static/css/styles.css`
-- Template base: `templates/base.html`
-- Templates por sección: `<app>/templates/<app>/`
-
----
-
-## 🔐 Variables de entorno
-
-Crea un archivo `.env` en la raíz del proyecto basado en `.env.example`:
-
-```env
-# Modo debug (True en desarrollo, False en producción)
-DEBUG=True
-
-# Clave secreta de Django (¡genera una nueva en producción!)
-SECRET_KEY=tu-clave-super-secreta-aqui
-
-# Hosts permitidos (separados por coma)
-ALLOWED_HOSTS=127.0.0.1,localhost
-```
-
-> 🔒 **Nunca subas el archivo `.env` a GitHub.** Ya está incluido en `.gitignore`.
-
-Para generar una nueva `SECRET_KEY`:
-
-```python
-python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
-```
-
----
-
-## 💻 Comandos útiles
-
-| Comando | Descripción |
-|---------|-------------|
-| `python manage.py runserver` | Inicia el servidor de desarrollo |
-| `python manage.py makemigrations` | Genera archivos de migración tras cambiar modelos |
-| `python manage.py migrate` | Aplica las migraciones a la base de datos |
-| `python manage.py createsuperuser` | Crea un usuario administrador |
-| `python manage.py collectstatic` | Recopila archivos estáticos para producción |
-| `python manage.py shell` | Abre una consola interactiva con Django cargado |
-| `pip freeze > requirements.txt` | Actualiza el archivo de dependencias |
+- 🏗️ Arquitectura proyecto/app de Django
+- 🗃️ Modelos, migraciones y ORM
+- 🔀 Sistema de URLs anidadas con `include()` y namespaces
+- 🎨 Templates con herencia, filtros y tags
+- 📝 Formularios con `ModelForm` y validación
+- 🛠️ Django Admin como CMS gratuito
+- 🔐 Gestión de credenciales con variables de entorno
+- 📧 Envío de emails vía SMTP (Gmail con contraseña de aplicación)
+- 🌐 Despliegue en PythonAnywhere: WhiteNoise, collectstatic, WSGI
+- 🐛 Debugging de errores reales: `DisallowedHost`, `NoReverseMatch`, problemas de encoding UTF-8/UTF-16, drift entre desarrollo y producción
 
 ---
 
 ## 🗺️ Roadmap
 
 - [x] Configuración inicial del proyecto
-- [x] Apps principales creadas (core, proyectos, blog, contacto)
-- [ ] Modelos de datos completos
-- [ ] Diseño responsive del frontend
-- [ ] Formulario de contacto funcional con envío de emails
-- [ ] Sistema de comentarios en el blog
-- [ ] Modo oscuro
-- [ ] Despliegue en producción
+- [x] Apps principales (core, proyectos, blog, contacto)
+- [x] Modelos y panel admin funcional
+- [x] Diseño responsive estilo terminal hacker
+- [x] Formulario de contacto con email
+- [x] Despliegue público con HTTPS
+- [ ] Página 404 personalizada (estilo "command not found")
+- [ ] Más artículos de blog técnico
+- [ ] Modo claro/oscuro toggle
 - [ ] Integración con Google Analytics
-- [ ] SEO optimizado (sitemap, meta tags)
+- [ ] SEO: sitemap, meta tags, Open Graph
+- [ ] Migración a PostgreSQL
 
 ---
 
-## 🤝 Contribuir
+## 📬 Contacto
 
-Este es un proyecto personal, pero las sugerencias son bienvenidas. Si encuentras un bug o tienes una idea:
+**Hans Soto** — Estudiante de Ingeniería en Ciberseguridad
 
-1. Abre un *issue* describiendo el problema o propuesta
-2. Si quieres enviar código:
-   - Haz fork del repositorio
-   - Crea una rama: `git checkout -b mejora/nombre-descriptivo`
-   - Haz tus commits con mensajes claros
-   - Abre un *Pull Request*
+- 🌐 **Portafolio:** [hsoto.pythonanywhere.com](https://hsoto.pythonanywhere.com)
+- 💼 **GitHub:** [@hanssoto-cyber](https://github.com/hanssoto-cyber)
+- 📧 **Email:** Disponible vía el [formulario de contacto](https://hsoto.pythonanywhere.com/contacto/)
 
 ---
 
@@ -260,14 +233,7 @@ Distribuido bajo la licencia MIT. Consulta el archivo `LICENSE` para más inform
 
 ---
 
-## 📬 Contacto
-
-**Tu Nombre** — [@tu_usuario](https://github.com/tu_usuario)
-
-📧 tu.email@ejemplo.com
-
-🔗 Link del proyecto: [https://github.com/TU_USUARIO/TU_REPOSITORIO](https://github.com/TU_USUARIO/TU_REPOSITORIO)
-
----
-
-<p align="center">Hecho con ❤️ y Django</p>
+<p align="center">
+  Hecho con ❤️ y mucho café por <strong>Hans Soto</strong><br>
+  Estudiante de Ciberseguridad | Blue Team Focus
+</p>
