@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Portafolio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'core:inicio' %}">Inicio</a>
+        <a href="{% url 'proyectos:lista' %}">Proyectos</a>
+        <a href="{% url 'blog:lista' %}">Blog</a>
+        <a href="{% url 'contacto:formulario' %}">Contacto</a>
+    </nav>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <p>&copy; 2026 Hans Soto</p>
+    </footer>
+</body>
+</html>

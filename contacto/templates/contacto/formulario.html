@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacto | Mi Portafolio{% endblock %}
+
+{% block content %}
+<section class="contacto">
+    <h1>Contáctame</h1>
+    <p>¿Tienes una propuesta, pregunta o quieres saludar? Escríbeme:</p>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alerta alerta-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" class="formulario-contacto">
+        {% csrf_token %}
+
+        <div class="campo">
+            <label for="{{ form.nombre.id_for_label }}">Nombre</label>
+            {{ form.nombre }}
+            {{ form.nombre.errors }}
+        </div>
+
+        <div class="campo">
+            <label for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+
+        <div class="campo">
+            <label for="{{ form.asunto.id_for_label }}">Asunto</label>
+            {{ form.asunto }}
+            {{ form.asunto.errors }}
+        </div>
+
+        <div class="campo">
+            <label for="{{ form.mensaje.id_for_label }}">Mensaje</label>
+            {{ form.mensaje }}
+            {{ form.mensaje.errors }}
+        </div>
+
+        <button type="submit">Enviar mensaje</button>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Proyectos | Mi Portafolio{% endblock %}
+
+{% block content %}
+<section class="proyectos">
+    <h1>Mis Proyectos</h1>
+
+    {% if proyectos %}
+        <div class="grid-proyectos">
+            {% for proyecto in proyectos %}
+                <article class="proyecto-card">
+                    {% if proyecto.imagen %}
+                        <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.titulo }}">
+                    {% endif %}
+                    <h2>{{ proyecto.titulo }}</h2>
+                    <p>{{ proyecto.descripcion|truncatewords:20 }}</p>
+                    <p class="tecnologias"><strong>Stack:</strong> {{ proyecto.tecnologias }}</p>
+                    <a href="{% url 'proyectos:detalle' proyecto.id %}">Ver más →</a>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Aún no he publicado proyectos. ¡Pronto habrá novedades!</p>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ articulo.titulo }} | Blog{% endblock %}
+
+{% block content %}
+<article class="articulo-detalle">
+    <a href="{% url 'blog:lista' %}">← Volver al blog</a>
+
+    <h1>{{ articulo.titulo }}</h1>
+    <p class="fecha">Publicado el {{ articulo.fecha_publicacion|date:"d F Y" }}</p>
+
+    {% if articulo.imagen %}
+        <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
+    {% endif %}
+
+    <div class="contenido">
+        {{ articulo.contenido|linebreaks }}
+    </div>
+</article>
+{% endblock %}

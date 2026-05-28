@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ proyecto.titulo }} | Mi Portafolio{% endblock %}
+
+{% block content %}
+<article class="proyecto-detalle">
+    <a href="{% url 'proyectos:lista' %}">← Volver a proyectos</a>
+
+    <h1>{{ proyecto.titulo }}</h1>
+
+    {% if proyecto.imagen %}
+        <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.titulo }}">
+    {% endif %}
+
+    <p>{{ proyecto.descripcion }}</p>
+
+    <p><strong>Tecnologías:</strong> {{ proyecto.tecnologias }}</p>
+    <p><strong>Fecha:</strong> {{ proyecto.fecha_creacion }}</p>
+
+    <div class="enlaces">
+        {% if proyecto.url_demo %}
+            <a href="{{ proyecto.url_demo }}" target="_blank">🌐 Ver demo</a>
+        {% endif %}
+        {% if proyecto.url_github %}
+            <a href="{{ proyecto.url_github }}" target="_blank">💻 Código en GitHub</a>
+        {% endif %}
+    </div>
+</article>
+{% endblock %}

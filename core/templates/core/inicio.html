@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ nombre }} | Blue Team Portfolio{% endblock %}
+
+{% block content %}
+<!-- ===== HERO PRINCIPAL ===== -->
+<section class="hero">
+    <div class="hero-terminal">
+        <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">~/whoami</span>
+        </div>
+        <div class="terminal-body">
+            <p class="terminal-line"><span class="prompt">$</span> whoami</p>
+            <h1 class="typing">{{ nombre }}</h1>
+            <p class="terminal-line"><span class="prompt">$</span> cat role.txt</p>
+            <h2>{{ titulo }}</h2>
+            <p class="terminal-line"><span class="prompt">$</span> cat about.md</p>
+            <p class="bio">{{ bio }}</p>
+            <p class="terminal-line"><span class="prompt">$</span> <span class="cursor-blink">_</span></p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== STATS DASHBOARD ===== -->
+<section class="stats-grid">
+    {% for stat in stats %}
+        <div class="stat-card" style="animation-delay: {{ forloop.counter0 }}00ms;">
+            <div class="stat-valor">{{ stat.valor }}</div>
+            <div class="stat-label">{{ stat.label }}</div>
+        </div>
+    {% endfor %}
+</section>
+
+<!-- ===== HABILIDADES ===== -->
+<section class="habilidades">
+    <h2 class="seccion-titulo">// stack tecnológico</h2>
+
+    <!-- Lenguajes -->
+    <div class="categoria-skills">
+        <h3 class="categoria-titulo">
+            <span class="bracket">[</span>
+            LENGUAJES
+            <span class="bracket">]</span>
+        </h3>
+        <div class="skills-grid">
+            {% for skill in habilidades.lenguajes %}
+                <div class="skill-card" style="animation-delay: {{ forloop.counter0 }}50ms;">
+                    <div class="skill-header">
+                        <span class="skill-icono">{{ skill.icono }}</span>
+                        <span class="skill-nombre">{{ skill.nombre }}</span>
+                        <span class="skill-nivel">{{ skill.nivel }}%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: {{ skill.nivel }}%;"></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Ciberseguridad -->
+    <div class="categoria-skills">
+        <h3 class="categoria-titulo">
+            <span class="bracket">[</span>
+            CIBERSEGURIDAD
+            <span class="bracket">]</span>
+        </h3>
+        <div class="skills-grid">
+            {% for skill in habilidades.ciberseguridad %}
+                <div class="skill-card" style="animation-delay: {{ forloop.counter0 }}50ms;">
+                    <div class="skill-header">
+                        <span class="skill-icono">{{ skill.icono }}</span>
+                        <span class="skill-nombre">{{ skill.nombre }}</span>
+                        <span class="skill-nivel">{{ skill.nivel }}%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: {{ skill.nivel }}%;"></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Herramientas -->
+    <div class="categoria-skills">
+        <h3 class="categoria-titulo">
+            <span class="bracket">[</span>
+            HERRAMIENTAS
+            <span class="bracket">]</span>
+        </h3>
+        <div class="skills-grid">
+            {% for skill in habilidades.herramientas %}
+                <div class="skill-card" style="animation-delay: {{ forloop.counter0 }}50ms;">
+                    <div class="skill-header">
+                        <span class="skill-icono">{{ skill.icono }}</span>
+                        <span class="skill-nombre">{{ skill.nombre }}</span>
+                        <span class="skill-nivel">{{ skill.nivel }}%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: {{ skill.nivel }}%;"></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta">
+    <h2 class="seccion-titulo">// ¿hablamos?</h2>
+    <p>Si te interesa el blue teaming, la defensa de redes o simplemente quieres conectar:</p>
+    <a href="{% url 'contacto:formulario' %}" class="btn-cta">
+        ./iniciar_conexion.sh
+    </a>
+</section>
+{% endblock %}

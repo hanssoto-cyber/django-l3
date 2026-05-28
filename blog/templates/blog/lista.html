@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog | Mi Portafolio{% endblock %}
+
+{% block content %}
+<section class="blog">
+    <h1>Blog</h1>
+
+    {% if articulos %}
+        {% for articulo in articulos %}
+            <article class="articulo-card">
+                {% if articulo.imagen %}
+                    <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
+                {% endif %}
+                <h2><a href="{% url 'blog:detalle' articulo.slug %}">{{ articulo.titulo }}</a></h2>
+                <p class="fecha">{{ articulo.fecha_publicacion|date:"d F Y" }}</p>
+                <p>{{ articulo.resumen }}</p>
+                <a href="{% url 'blog:detalle' articulo.slug %}">Leer más →</a>
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>Aún no hay artículos publicados.</p>
+    {% endif %}
+</section>
+{% endblock %}
