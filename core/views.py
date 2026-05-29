@@ -75,3 +75,6 @@ def inicio(request):
         'stats': stats,
     }
     return render(request, 'core/inicio.html', contexto)
+
+def error_404(request, exception):
+    return render(request, '404.html', status=404)
